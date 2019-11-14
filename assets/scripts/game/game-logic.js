@@ -2,9 +2,9 @@
 
 const api = require('./api');
 const ui = require('./ui');
-const currentPlayer = 'x';
+const store = require('../store');
 
-// const currentBoard = ['x', 'o', '', '', '', '', '', '', ''];
+store.currentPlayer = 'x';
 
 const isValidMove = () => {
   // TODO: actually check if move is valid
@@ -25,7 +25,11 @@ const isWinningMove = () => {
 };
 
 const togglePlayer = () => {
-  console.log('Hi from togglePlayer');
+  if (store.currentPlayer === 'x') {
+    store.currentPlayer = 'o';
+  } else {
+    store.currentPlayer = 'x';
+  }
 };
 
 const clearBoard = () => {
@@ -33,7 +37,7 @@ const clearBoard = () => {
 };
 
 module.exports = {
-  currentPlayer,
+  // currentPlayer,
   isValidMove,
   isWinningMove,
   togglePlayer,
