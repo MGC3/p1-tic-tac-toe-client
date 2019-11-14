@@ -27,7 +27,7 @@ const onClickSquare = e => {
   // send/PATCH api update with new move. If win, send that info too. Also if win, show user message
   const id = parseInt(e.target.id);
   const player = store.currentPlayer;
-  if (game.isValidMove()) {
+  if (game.isValidMove(id)) {
     game.onUpdateMove(id, player);
     if (game.isWinningMove()) {
       game.clearBoard();

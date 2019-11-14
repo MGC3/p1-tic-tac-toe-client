@@ -6,9 +6,8 @@ const store = require('../store');
 
 store.currentPlayer = 'x';
 
-const isValidMove = () => {
-  // TODO: actually check if move is valid
-  return true;
+const isValidMove = id => {
+  return store.game.cells[id] == false ? true : false;
 };
 
 const onUpdateMove = (id, player) => {
