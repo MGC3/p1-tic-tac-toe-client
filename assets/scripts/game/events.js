@@ -11,8 +11,16 @@ const onCreateGame = e => {
     .catch(ui.onCreateGameFailure);
 };
 
+const onGetAllGames = () => {
+  api
+    .getAllGames()
+    .then(ui.onGetAllGamesSuccess)
+    .catch(ui.onGetAllGamesFailure);
+};
+
 const addHandlers = e => {
   $('#create-game').on('click', onCreateGame);
+  $('#get-all-games').on('click', onGetAllGames);
 };
 
 module.exports = {
