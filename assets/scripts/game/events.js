@@ -42,10 +42,15 @@ const onClickSquare = e => {
   // test sending API the
 };
 
+const onCheckState = () => {
+  console.log(store.game.cells);
+};
+
 const addHandlers = e => {
   $('#create-game').on('click', onCreateGame);
   $('#get-all-games').on('click', onGetAllGames);
   $('#game-board').on('click', onClickSquare);
+  $('#check-state').on('click', onCheckState);
 };
 
 module.exports = {
