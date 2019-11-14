@@ -31,12 +31,13 @@ const winningMoves = [
 
 const isWinningMove = () => {
   console.log('Hi from isWinningMOve');
+  let winner = false;
+
   winningMoves.map(row => {
     let first = row[0];
     let second = row[1];
     let third = row[2];
 
-    let winner = false;
     if (
       store.game.cells[first] === store.game.cells[second] &&
       store.game.cells[second] === store.game.cells[third] &&
@@ -44,12 +45,13 @@ const isWinningMove = () => {
     ) {
       console.log('winner: ', store.currentPlayer);
       winner = true;
+      return;
     } else {
       console.log('no winners yet');
-      return false;
+      return;
     }
-    return winner;
   });
+  return winner;
 };
 
 const togglePlayer = () => {
