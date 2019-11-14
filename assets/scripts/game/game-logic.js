@@ -15,6 +15,7 @@ const onUpdateMove = (id, player) => {
   api
     .updateMove(id, player)
     .then(res => ui.onUpdateMoveSuccess(res))
+    .then(() => isWinningMove())
     .catch(error => ui.onUpdateMoveFailure(error));
 };
 
@@ -45,10 +46,6 @@ const isWinningMove = () => {
     ) {
       console.log('winner: ', store.currentPlayer);
       winner = true;
-      return;
-    } else {
-      console.log('no winners yet');
-      return;
     }
   });
   return winner;

@@ -39,7 +39,10 @@ const onGetAllGamesFailure = () => {
 };
 
 const renderSquare = () => {
-  console.log('Hi from renderSquare');
+  console.log(
+    'Hi from renderSquare, here is the current Player I would render',
+    store.currentPlayer
+  );
 };
 
 const onUpdateMoveSuccess = responseData => {
