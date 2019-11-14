@@ -2,7 +2,7 @@
 
 const api = require('./api');
 
-const currentPlayer = 'X';
+const currentPlayer = 'x';
 
 // const currentBoard = ['x', 'o', '', '', '', '', '', '', ''];
 

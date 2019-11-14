@@ -32,12 +32,11 @@ const updateMove = (id, player) => {
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    // prettier-ignore
     data: {
-      "game": {
-        "cell": {
-          "index": 0,
-          "value": 'x'
+      game: {
+        cell: {
+          index: id,
+          value: player
         },
         over: false
       }
