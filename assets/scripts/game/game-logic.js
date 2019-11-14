@@ -25,11 +25,7 @@ const isWinningMove = () => {
 };
 
 const togglePlayer = () => {
-  if (store.currentPlayer === 'x') {
-    store.currentPlayer = 'o';
-  } else {
-    store.currentPlayer = 'x';
-  }
+  store.currentPlayer = store.currentPlayer === 'x' ? 'o' : 'x';
 };
 
 const clearBoard = () => {
