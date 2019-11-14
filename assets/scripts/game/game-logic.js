@@ -18,9 +18,34 @@ const onUpdateMove = (id, player) => {
     .catch(error => ui.onUpdateMoveFailure(error));
 };
 
+const winningMoves = [
+  [0, 1, 2], // cells[0], cells[1], cells[2]
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6], // cells[0], cells[3], cells[6]j - i want row[0] value into cells[]. cells[row[0]]
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+];
+
 const isWinningMove = () => {
   console.log('Hi from isWinningMOve');
-  return false;
+  winningMoves.map(row => {
+    let first = row[0];
+    let second = row[1];
+    let third = row[2];
+    if (
+      store.game.cells[first] === store.game.cells[second] &&
+      store.game.cells[second] === store.game.cells[third]
+    ) {
+      console.log('we have a winner');
+      return true;
+    } else {
+      console.log('no winners yet');
+      return false;
+    }
+  });
 };
 
 const togglePlayer = () => {
