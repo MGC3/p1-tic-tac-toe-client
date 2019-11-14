@@ -5,7 +5,9 @@ const store = require('../store');
 
 const signUp = formData => {
   return $.ajax({
-    url: config.apiUrl + '/sign-up',
+    url: 'https://tic-tac-toe-wdi-production.herokuapp.com/sign-up',
+    // TODO: getting a 500 error when using dev url, once resolved remove the hardcoded link above
+    // url: config.apiUrl + '/sign-up',
     method: 'POST',
     data: formData
   });
