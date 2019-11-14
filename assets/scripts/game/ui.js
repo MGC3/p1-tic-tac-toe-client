@@ -2,12 +2,13 @@
 
 const store = require('../store');
 
-const onSuccess = message => {
-  $('#game')
-    .removeClass('failure')
-    .addClass('success')
-    .text(message);
-};
+// change this function to display board, save for late MVP
+// const onSuccess = message => {
+//   $('#game')
+//     .removeClass('failure')
+//     .addClass('success')
+//     .text(message);
+// };
 
 const onFailure = message => {
   $('#game')
@@ -16,8 +17,11 @@ const onFailure = message => {
     .text(message);
 };
 
-const onCreateGameSuccess = () => {
-  onSuccess('Game successfully created');
+const onCreateGameSuccess = responseData => {
+  // store game info
+  store.game = responseData.game;
+  // TODO: get board to show after creating game - save for late MVP
+  // onSuccess('Game successfully created');
 };
 
 const onCreateGameFailure = () => {
@@ -34,18 +38,27 @@ const onGetAllGamesFailure = () => {
   onFailure('ERROR ERROR - failed to get all games');
 };
 
-// // model onCreateGameSuccess after this. Similarly store the patch/updates in store too (though this will be diff function)
-// const onSigninSuccess = responseData => {
-//   store.user = responseData.user;
-//   console.log(store);
-//   onSuccess('Sucessfully signed in');
-//   $('.after-auth').show();
-//   $('.before-auth').hide();
-// };
+const renderSquare = () => {
+  console.log('Hi from renderSquare');
+};
+
+const onUpdateMoveSuccess = responseData => {
+  // update game state
+  store.game = responseData.game;
+  // render square on screen
+  console.log('Update move success - this is where Im updating state!');
+  renderSquare();
+};
+
+const onUpdateMoveFailure = () => {
+  console.log('ERROR - onUpdateMoveFailure');
+};
 
 module.exports = {
   onCreateGameSuccess,
   onCreateGameFailure,
   onGetAllGamesSuccess,
-  onGetAllGamesFailure
+  onGetAllGamesFailure,
+  onUpdateMoveSuccess,
+  onUpdateMoveFailure
 };

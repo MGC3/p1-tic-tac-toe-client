@@ -1,7 +1,7 @@
 'use strict';
 
 const api = require('./api');
-
+const ui = require('./ui');
 const currentPlayer = 'x';
 
 // const currentBoard = ['x', 'o', '', '', '', '', '', '', ''];
@@ -12,7 +12,11 @@ const isValidMove = () => {
 };
 
 const onUpdateMove = (id, player) => {
-  api.updateMove(id, player);
+  // send the move, then update store with returned results
+  api
+    .updateMove(id, player)
+    .then(res => ui.onUpdateMoveSuccess(res))
+    .catch(error => ui.onUpdateMoveFailure(error));
 };
 
 const isWinningMove = () => {

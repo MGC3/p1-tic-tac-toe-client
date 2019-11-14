@@ -2,7 +2,6 @@
 
 const config = require('../config');
 const store = require('../store');
-const gameId = 2;
 
 const createGame = () => {
   return $.ajax({
@@ -25,9 +24,8 @@ const getAllGames = () => {
 };
 
 const updateMove = (id, player) => {
-  console.log('Hi from updateMove from API');
   return $.ajax({
-    url: config.apiUrl + '/games/' + gameId,
+    url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
       Authorization: `Token token=${store.user.token}`

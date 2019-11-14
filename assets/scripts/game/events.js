@@ -3,12 +3,12 @@
 const api = require('./api');
 const ui = require('./ui');
 const game = require('./game-logic');
+const store = require('../store');
 
 const onCreateGame = e => {
   api
     .createGame()
-    .then(res => console.log(res))
-    // .then(ui.onSignupSuccess) // this should render the board
+    .then(res => ui.onCreateGameSuccess(res))
     .catch(ui.onCreateGameFailure);
 };
 
@@ -33,6 +33,10 @@ const onClickSquare = e => {
       game.clearBoard();
     } else {
       game.togglePlayer();
+      console.log('Store check - gameid: ');
+      console.log(store.game.id);
+      console.log('Store check - gamestate: ');
+      console.log(store.game.cells);
     }
   }
   // test sending API the
