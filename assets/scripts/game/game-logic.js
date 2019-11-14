@@ -1,5 +1,7 @@
 'use strict';
 
+const api = require('./api');
+
 const currentPlayer = 'X';
 
 // const currentBoard = ['x', 'o', '', '', '', '', '', '', ''];
@@ -9,15 +11,21 @@ const isValidMove = () => {
   return true;
 };
 
-const updateMove = () => {
-  // TODO: actually send request to API, then get results back and update current board. So can check if win later
-  console.log('Hi from updateMove');
+const onUpdateMove = (id, player) => {
+  api.updateMove(id, player);
 };
+
 const isWinningMove = () => {
-  console.log('Hi from isWinningMOve'); //
+  console.log('Hi from isWinningMOve');
+  return false;
 };
+
 const togglePlayer = () => {
   console.log('Hi from togglePlayer');
+};
+
+const clearBoard = () => {
+  console.log('Hi from clearBoard');
 };
 
 module.exports = {
@@ -25,5 +33,6 @@ module.exports = {
   isValidMove,
   isWinningMove,
   togglePlayer,
-  updateMove
+  onUpdateMove,
+  clearBoard
 };

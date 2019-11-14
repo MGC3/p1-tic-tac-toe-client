@@ -25,12 +25,15 @@ const onClickSquare = e => {
   // render the X or O. Add a 'currentPlayerSymbol' boolean somewhere and toggle it.
   // check for win condition
   // send/PATCH api update with new move. If win, send that info too. Also if win, show user message
-  const id = e.target.id;
-  console.log(game.currentPlayer);
+  const id = parseInt(e.target.id);
+  const player = game.currentPlayer;
   if (game.isValidMove()) {
-    game.updateMove();
-    game.isWinningMove();
-    game.togglePlayer();
+    game.onUpdateMove(id, player);
+    if (game.isWinningMove()) {
+      game.clearBoard();
+    } else {
+      game.togglePlayer();
+    }
   }
   // test sending API the
 };
