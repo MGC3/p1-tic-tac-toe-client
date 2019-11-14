@@ -37,9 +37,10 @@ const isWinningMove = () => {
     let third = row[2];
     if (
       store.game.cells[first] === store.game.cells[second] &&
-      store.game.cells[second] === store.game.cells[third]
+      store.game.cells[second] === store.game.cells[third] &&
+      store.game.cells[first] !== ''
     ) {
-      console.log('we have a winner');
+      console.log('winner: ', store.currentPlayer);
       return true;
     } else {
       console.log('no winners yet');
