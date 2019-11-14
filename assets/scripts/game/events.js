@@ -27,10 +27,11 @@ const onClickSquare = e => {
   // send/PATCH api update with new move. If win, send that info too. Also if win, show user message
   const id = e.target.id;
   console.log(game.currentPlayer);
-  game.isWinningMove();
-  game.togglePlayer();
-  game.isValidMove();
-
+  if (game.isValidMove()) {
+    game.updateMove();
+    game.isWinningMove();
+    game.togglePlayer();
+  }
   // test sending API the
 };
 
