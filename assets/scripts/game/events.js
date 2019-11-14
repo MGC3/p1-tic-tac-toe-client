@@ -2,6 +2,7 @@
 
 const api = require('./api');
 const ui = require('./ui');
+const game = require('./game-logic');
 
 const onCreateGame = e => {
   api
@@ -19,15 +20,18 @@ const onGetAllGames = () => {
 };
 
 const onClickSquare = e => {
-  // things to do: 
+  // things to do:
   // check if move is valid, and exit/break if invalid
   // render the X or O. Add a 'currentPlayerSymbol' boolean somewhere and toggle it.
   // check for win condition
   // send/PATCH api update with new move. If win, send that info too. Also if win, show user message
   const id = e.target.id;
-  console.log(id);
+  console.log(game.currentPlayer);
+  game.isWinningMove();
+  game.togglePlayer();
+  game.isValidMove();
 
-  api.
+  // test sending API the
 };
 
 const addHandlers = e => {
