@@ -26,7 +26,7 @@ const onCreateGameFailure = () => {
 const onGetAllGamesSuccess = data => {
   // update the #game-count div with total number of games associated with user
   let totalGames = data.games.length;
-  $('#game-count').append(totalGames);
+  $('#game-count').html(totalGames);
 };
 
 const onGetAllGamesFailure = () => {
