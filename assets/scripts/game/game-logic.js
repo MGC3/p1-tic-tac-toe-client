@@ -48,6 +48,7 @@ const isWinningMove = () => {
     ) {
       console.log('winner: ', store.currentPlayer);
       winner = true;
+      store.isOver = true;
     }
   });
 
