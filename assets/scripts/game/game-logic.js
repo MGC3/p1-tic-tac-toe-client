@@ -18,7 +18,7 @@ const onUpdateMove = (id, player) => {
     .updateMove(id, player)
     .then(res => ui.onUpdateMoveSuccess(res))
     .then(() => isWinningMove())
-    .then(isWon => (isWon ? clearBoard() : togglePlayer()))
+    .then(isWon => (isWon ? endGame() : togglePlayer()))
     .catch(error => ui.onUpdateMoveFailure(error));
 };
 
@@ -58,9 +58,15 @@ const togglePlayer = () => {
   store.currentPlayer = store.currentPlayer === 'x' ? 'o' : 'x';
 };
 
-const clearBoard = () => {
-  console.warn('Hi from clearBoard! WIN CONDITION');
+const endGame = () => {
+  ui.onGameOver();
+  console.warn('Hi from endGame! WIN CONDITION');
 };
+
+// TODO
+// const clearBoard() => {
+
+// }
 
 module.exports = {
   // currentPlayer,
@@ -68,5 +74,5 @@ module.exports = {
   isWinningMove,
   togglePlayer,
   onUpdateMove,
-  clearBoard
+  endGame
 };

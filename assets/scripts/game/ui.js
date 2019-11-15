@@ -20,6 +20,7 @@ const onFailure = message => {
 const onCreateGameSuccess = responseData => {
   // store game info
   store.game = responseData.game;
+  clearBoard();
   // TODO: get board to show after creating game - save for late MVP
   // onSuccess('Game successfully created');
 };
@@ -52,6 +53,20 @@ const onUpdateMoveFailure = () => {
   console.log('ERROR - onUpdateMoveFailure');
 };
 
+const onGameOver = () => {
+  alertWinner();
+};
+
+const alertWinner = () => {
+  $('#game-alert')
+    .addClass('alert alert-success')
+    .html(`Player ${store.currentPlayer} wins!`);
+};
+
+const clearBoard = () => {
+  $('.box').html('');
+};
+
 module.exports = {
   onCreateGameSuccess,
   onCreateGameFailure,
@@ -59,5 +74,6 @@ module.exports = {
   onGetAllGamesFailure,
   onUpdateMoveSuccess,
   onUpdateMoveFailure,
-  renderSquare
+  renderSquare,
+  onGameOver
 };
