@@ -44,7 +44,7 @@ const onUpdateMoveSuccess = responseData => {
 };
 
 const onUpdateMoveFailure = () => {
-  console.log('ERROR - onUpdateMoveFailure');
+  onFailure('Unable to update move');
 };
 
 const onGameOver = () => {

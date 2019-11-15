@@ -20,6 +20,14 @@ const onUpdateMove = (id, player) => {
     .then(() => isWinningMove())
     .then(isWon => (isWon ? endGame() : togglePlayer()))
     .catch(error => ui.onUpdateMoveFailure(error));
+
+  if (isCellsFull) {
+    console.log('length triggered');
+  }
+};
+
+const isCellsFull = () => {
+  return store.game.cells.find('x');
 };
 
 const winningMoves = [
@@ -34,7 +42,6 @@ const winningMoves = [
 ];
 
 const isWinningMove = () => {
-  console.log('Hi from isWinningMOve');
   let winner = false;
   winningMoves.map(row => {
     let first = row[0];
@@ -46,7 +53,6 @@ const isWinningMove = () => {
       store.game.cells[second] === store.game.cells[third] &&
       store.game.cells[first] !== ''
     ) {
-      console.log('winner: ', store.currentPlayer);
       winner = true;
       store.isOver = true;
     }

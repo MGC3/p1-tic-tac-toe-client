@@ -7,6 +7,7 @@ const store = require('../store');
 
 const onCreateGame = e => {
   store.isOver = false;
+  store.currentPlayer = 'x';
   api
     .createGame()
     .then(res => ui.onCreateGameSuccess(res))
