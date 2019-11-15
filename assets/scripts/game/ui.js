@@ -2,7 +2,6 @@
 
 const store = require('../store');
 const Swal = require('sweetalert2');
-const events = require('./events');
 
 const onFailure = message => {
   $('#game')
@@ -49,10 +48,6 @@ const onUpdateMoveFailure = () => {
 };
 
 const onGameOver = () => {
-  alertWinner();
-};
-
-const alertWinner = () => {
   Swal.fire({
     title: `Player ${store.currentPlayer} wins!`,
     text: 'Congratulations, you won!',

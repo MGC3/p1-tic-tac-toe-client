@@ -34,16 +34,10 @@ const onClickSquare = e => {
   } // TODO else tell user move is invalid
 };
 
-const onCheckState = () => {
-  console.log(store.game.cells);
-};
-
 const addHandlers = e => {
   $('#create-game').on('click', onCreateGame);
   $('#get-all-games').on('click', onGetAllGames);
   $('#game-board').on('click', onClickSquare);
-  $('#check-state').on('click', onCheckState);
-  // $('#test-button').on('click', test);
 };
 
 module.exports = {

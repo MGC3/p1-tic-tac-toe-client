@@ -1,6 +1,7 @@
 'use strict';
 
 const store = require('../store');
+const Swal = require('sweetalert2');
 
 const onSuccess = message => {
   $('#message')
@@ -28,10 +29,15 @@ const onSignupFailure = () => {
 
 const onSigninSuccess = responseData => {
   store.user = responseData.user;
-  console.log(store);
-  onSuccess('Sucessfully signed in');
   $('.after-auth').show();
   $('.before-auth').hide();
+  Swal.fire({
+    position: 'top',
+    icon: 'success',
+    title: 'Successfully logged in',
+    showConfirmButton: false,
+    timer: 1000
+  });
 };
 
 const onSigninFailure = () => {
