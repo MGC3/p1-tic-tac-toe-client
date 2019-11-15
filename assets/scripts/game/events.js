@@ -6,6 +6,7 @@ const game = require('./game-logic');
 const store = require('../store');
 
 const onCreateGame = e => {
+  store.isOver = false;
   api
     .createGame()
     .then(res => ui.onCreateGameSuccess(res))
@@ -42,8 +43,10 @@ const addHandlers = e => {
   $('#get-all-games').on('click', onGetAllGames);
   $('#game-board').on('click', onClickSquare);
   $('#check-state').on('click', onCheckState);
+  // $('#test-button').on('click', test);
 };
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onCreateGame
 };

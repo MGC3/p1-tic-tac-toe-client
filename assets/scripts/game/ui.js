@@ -1,14 +1,8 @@
 'use strict';
 
 const store = require('../store');
-
-// change this function to display board, save for late MVP
-// const onSuccess = message => {
-//   $('#game')
-//     .removeClass('failure')
-//     .addClass('success')
-//     .text(message);
-// };
+const Swal = require('sweetalert2');
+const events = require('./events');
 
 const onFailure = message => {
   $('#game')
@@ -20,9 +14,9 @@ const onFailure = message => {
 const onCreateGameSuccess = responseData => {
   // store game info
   store.game = responseData.game;
+  // clear the board
   clearBoard();
-  // TODO: get board to show after creating game - save for late MVP
-  // onSuccess('Game successfully created');
+  // if the board is still hidden (1st sign in), make the board visible
   $('.board').css('display', 'flex');
 };
 
@@ -59,9 +53,13 @@ const onGameOver = () => {
 };
 
 const alertWinner = () => {
-  $('#game-alert')
-    .addClass('alert alert-success')
-    .html(`Player ${store.currentPlayer} wins!`);
+  Swal.fire({
+    title: `Player ${store.currentPlayer} wins!`,
+    text: 'Congratulations, you won!',
+    icon: 'success',
+    confirmButtonText: 'Ok',
+    allowOutsideClick: false
+  });
 };
 
 const clearBoard = () => {
