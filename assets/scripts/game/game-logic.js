@@ -25,7 +25,7 @@ const onUpdateMove = (id, player) => {
 
   totalMoves++;
   if (totalMoves === 9 && !isWinningMove()) {
-    ui.onTie();
+    ui.displayInfo("It's a tie!", 'What a close match, try again!');
   }
 };
 

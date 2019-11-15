@@ -32,7 +32,12 @@ const onClickSquare = e => {
   if (game.isValidMove(id) && !store.isOver) {
     game.onUpdateMove(id, player);
     ui.renderSquare(id);
-  } // TODO else tell user move is invalid
+  } else {
+    ui.displayInfo(
+      'Unable to make that move',
+      'That spot is already taken! Try clicking another spot.'
+    );
+  }
 };
 
 const addHandlers = e => {

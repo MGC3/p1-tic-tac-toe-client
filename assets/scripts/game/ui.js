@@ -57,10 +57,10 @@ const onGameOver = () => {
   });
 };
 
-const onTie = () => {
+const displayInfo = (title, text) => {
   Swal.fire({
-    title: `It's a tie!`,
-    text: 'What a close match, try again!',
+    title: title,
+    text: text,
     icon: 'info',
     confirmButtonText: 'Ok',
     allowOutsideClick: false
@@ -81,5 +81,5 @@ module.exports = {
   renderSquare,
   onGameOver,
   clearBoard,
-  onTie
+  displayInfo
 };
