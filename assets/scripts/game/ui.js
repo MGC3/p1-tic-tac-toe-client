@@ -23,6 +23,7 @@ const onCreateGameSuccess = responseData => {
   clearBoard();
   // TODO: get board to show after creating game - save for late MVP
   // onSuccess('Game successfully created');
+  $('.board').css('display', 'flex');
 };
 
 const onCreateGameFailure = () => {

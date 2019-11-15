@@ -63,13 +63,7 @@ const endGame = () => {
   console.warn('Hi from endGame! WIN CONDITION');
 };
 
-// TODO
-// const clearBoard() => {
-
-// }
-
 module.exports = {
-  // currentPlayer,
   isValidMove,
   isWinningMove,
   togglePlayer,
