@@ -57,6 +57,16 @@ const onGameOver = () => {
   });
 };
 
+const onTie = () => {
+  Swal.fire({
+    title: `It's a tie!`,
+    text: 'What a close match, try again!',
+    icon: 'info',
+    confirmButtonText: 'Ok',
+    allowOutsideClick: false
+  });
+};
+
 const clearBoard = () => {
   $('.box').html('');
 };
@@ -70,5 +80,6 @@ module.exports = {
   onUpdateMoveFailure,
   renderSquare,
   onGameOver,
-  clearBoard
+  clearBoard,
+  onTie
 };

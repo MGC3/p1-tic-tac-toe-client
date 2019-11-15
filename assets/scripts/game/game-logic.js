@@ -6,6 +6,8 @@ const store = require('../store');
 
 store.currentPlayer = 'x';
 
+let totalMoves = 0;
+
 const isValidMove = id => {
   return store.game.cells[id] == false ? true : false;
 };
@@ -21,13 +23,10 @@ const onUpdateMove = (id, player) => {
     .then(isWon => (isWon ? endGame() : togglePlayer()))
     .catch(error => ui.onUpdateMoveFailure(error));
 
-  if (isCellsFull) {
-    console.log('length triggered');
+  totalMoves++;
+  if (totalMoves === 9 && !isWinningMove()) {
+    ui.onTie();
   }
-};
-
-const isCellsFull = () => {
-  return store.game.cells.find('x');
 };
 
 const winningMoves = [
@@ -55,6 +54,7 @@ const isWinningMove = () => {
     ) {
       winner = true;
       store.isOver = true;
+      totalMoves = 0;
     }
   });
 
@@ -67,7 +67,6 @@ const togglePlayer = () => {
 
 const endGame = () => {
   ui.onGameOver();
-  console.warn('Hi from endGame! WIN CONDITION');
 };
 
 module.exports = {
