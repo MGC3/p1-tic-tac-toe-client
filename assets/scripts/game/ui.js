@@ -71,6 +71,10 @@ const clearBoard = () => {
   $('.box').html('');
 };
 
+const updateCurrentTurn = () => {
+  $('#current-turn').html(`${store.currentPlayer}`);
+};
+
 module.exports = {
   onCreateGameSuccess,
   onCreateGameFailure,
@@ -81,5 +85,6 @@ module.exports = {
   renderSquare,
   onGameOver,
   clearBoard,
-  displayInfo
+  displayInfo,
+  updateCurrentTurn
 };

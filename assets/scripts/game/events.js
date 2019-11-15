@@ -32,6 +32,7 @@ const onClickSquare = e => {
   if (game.isValidMove(id) && !store.isOver) {
     game.onUpdateMove(id, player);
     ui.renderSquare(id);
+    ui.updateCurrentTurn();
   } else {
     ui.displayInfo(
       'Unable to make that move',
