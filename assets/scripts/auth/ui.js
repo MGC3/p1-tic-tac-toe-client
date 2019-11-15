@@ -70,8 +70,10 @@ const onChangePasswordFailure = () => {
 
 const onSignOutSuccess = () => {
   onSuccess('Sucessfully signed out');
-  store.user = {}; // the store no longer knows who we are
+  // clear store and hide stuff
+  store.user = {};
   $('form').trigger('reset');
+  $('.board').css('display', 'none');
   $('.after-auth').hide();
   $('.before-auth').show();
 };
