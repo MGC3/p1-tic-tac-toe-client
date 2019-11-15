@@ -69,5 +69,6 @@ module.exports = {
   onUpdateMoveSuccess,
   onUpdateMoveFailure,
   renderSquare,
-  onGameOver
+  onGameOver,
+  clearBoard
 };

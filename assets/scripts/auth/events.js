@@ -3,6 +3,7 @@
 const api = require('./api');
 const getFormFields = require('../../../lib/get-form-fields');
 const ui = require('./ui');
+const gameUi = require('../game/ui');
 
 const onSignUp = e => {
   e.preventDefault();
@@ -42,7 +43,8 @@ const onChangePassword = e => {
 
 const onSignOut = e => {
   e.preventDefault();
-
+  // clear the board so user doesn't see the same game
+  gameUi.clearBoard();
   api
     .signOut()
     .then(ui.onSignOutSuccess)
