@@ -19,7 +19,7 @@ const onGetAllGames = () => {
     .catch(ui.onGetAllGamesFailure);
 };
 
-const onClickSquare = e => {
+async function onClickSquare(e) {
   // things to do:
   // check if move is valid, and exit/break if invalid
   // render the X or O. Add a 'currentPlayerSymbol' boolean somewhere and toggle it.
@@ -29,14 +29,15 @@ const onClickSquare = e => {
   const player = store.currentPlayer;
   if (game.isValidMove(id)) {
     game.onUpdateMove(id, player);
-    if (game.isWinningMove()) {
-      game.clearBoard();
-    } else {
-      game.togglePlayer();
-    }
+    let isWon = await game.isWinningMove();
+    isWon ? game.clearBoard() : game.togglePlayer();
+    // if (game.isWinningMove()) {
+    //   game.clearBoard();
+    // } else {
+    //   game.togglePlayer();
+    // }
   }
-  // test sending API the
-};
+}
 
 const onCheckState = () => {
   console.log(store.game.cells);

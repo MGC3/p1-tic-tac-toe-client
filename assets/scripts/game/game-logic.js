@@ -33,7 +33,6 @@ const winningMoves = [
 const isWinningMove = () => {
   console.log('Hi from isWinningMOve');
   let winner = false;
-
   winningMoves.map(row => {
     let first = row[0];
     let second = row[1];
@@ -44,10 +43,12 @@ const isWinningMove = () => {
       store.game.cells[second] === store.game.cells[third] &&
       store.game.cells[first] !== ''
     ) {
+      togglePlayer();
       console.log('winner: ', store.currentPlayer);
       winner = true;
     }
   });
+
   return winner;
 };
 
