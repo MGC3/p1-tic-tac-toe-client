@@ -38,20 +38,14 @@ const onGetAllGamesFailure = () => {
   onFailure('ERROR ERROR - failed to get all games');
 };
 
-const renderSquare = () => {
-  console.log(
-    'Hi from renderSquare, here is the current Player I would render',
-
-    store.currentPlayer
-  );
+const renderSquare = id => {
+  const newId = `#${id}`;
+  $(newId).html(`${store.currentPlayer}`);
 };
 
 const onUpdateMoveSuccess = responseData => {
   // update game state
   store.game = responseData.game;
-  // render square on screen
-  console.log('Update move success - this is where Im updating state!');
-  renderSquare();
 };
 
 const onUpdateMoveFailure = () => {
@@ -64,5 +58,6 @@ module.exports = {
   onGetAllGamesSuccess,
   onGetAllGamesFailure,
   onUpdateMoveSuccess,
-  onUpdateMoveFailure
+  onUpdateMoveFailure,
+  renderSquare
 };

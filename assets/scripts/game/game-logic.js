@@ -12,6 +12,8 @@ const isValidMove = id => {
 
 const onUpdateMove = (id, player) => {
   // send the move, then update store with returned results
+  // then check for win condition
+  // if win condition, trigger clearboard. If not, toggle player for next turn
   api
     .updateMove(id, player)
     .then(res => ui.onUpdateMoveSuccess(res))
@@ -44,7 +46,6 @@ const isWinningMove = () => {
       store.game.cells[second] === store.game.cells[third] &&
       store.game.cells[first] !== ''
     ) {
-      togglePlayer();
       console.log('winner: ', store.currentPlayer);
       winner = true;
     }

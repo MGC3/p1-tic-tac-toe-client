@@ -29,11 +29,7 @@ const onClickSquare = e => {
   const player = store.currentPlayer;
   if (game.isValidMove(id)) {
     game.onUpdateMove(id, player);
-    // if (game.isWinningMove()) {
-    //   game.clearBoard();
-    // } else {
-    //   game.togglePlayer();
-    // }
+    ui.renderSquare(id);
   }
 };
 
