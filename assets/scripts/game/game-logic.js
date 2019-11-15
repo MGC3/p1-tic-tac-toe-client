@@ -16,6 +16,7 @@ const onUpdateMove = (id, player) => {
     .updateMove(id, player)
     .then(res => ui.onUpdateMoveSuccess(res))
     .then(() => isWinningMove())
+    .then(isWon => (isWon ? clearBoard() : togglePlayer()))
     .catch(error => ui.onUpdateMoveFailure(error));
 };
 
