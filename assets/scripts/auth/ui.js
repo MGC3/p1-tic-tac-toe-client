@@ -4,18 +4,25 @@ const store = require('../store');
 const Swal = require('sweetalert2');
 
 const onSuccess = message => {
-  $('#message')
-    .removeClass('failure')
-    .addClass('success')
-    .text(message);
+  Swal.fire({
+    position: 'top',
+    icon: 'success',
+    title: message,
+    showConfirmButton: false,
+    timer: 1250
+  });
   $('form').trigger('reset');
 };
 
-const onFailure = message => {
-  $('#message')
-    .removeClass('success')
-    .addClass('failure)')
-    .text(message);
+const onFailure = (title, text) => {
+  Swal.fire({
+    position: 'top',
+    icon: 'error',
+    title: title,
+    text: text || null,
+    showConfirmButton: false,
+    timer: 2000
+  });
   $('form').trigger('reset');
 };
 
@@ -24,7 +31,10 @@ const onSignupSuccess = () => {
 };
 
 const onSignupFailure = () => {
-  onFailure('ERROR ERROR - sign up');
+  onFailure(
+    'Unable to sign up',
+    "We weren't able to sign you up. Try using a different email."
+  );
 };
 
 const onSigninSuccess = responseData => {
@@ -41,7 +51,10 @@ const onSigninSuccess = responseData => {
 };
 
 const onSigninFailure = () => {
-  onFailure('ERROR ERROR - sign in');
+  onFailure(
+    'Unable to sign you in',
+    'Check to make sure you spelled your username and password correctly, and that your account exists.'
+  );
 };
 
 const onChangePasswordSuccess = responseData => {
@@ -49,18 +62,22 @@ const onChangePasswordSuccess = responseData => {
 };
 
 const onChangePasswordFailure = () => {
-  onFailure('ERROR ERROR - change password');
+  onFailure(
+    'Unable to change your password',
+    'Check to make sure you spelled your old password correctly.'
+  );
 };
 
 const onSignOutSuccess = () => {
-  onSuccess('Sucessfully Signed Out');
+  onSuccess('Sucessfully signed out');
   store.user = {}; // the store no longer knows who we are
+  $('form').trigger('reset');
   $('.after-auth').hide();
   $('.before-auth').show();
 };
 
 const onSignOutFailure = () => {
-  onFailure('ERROR ERROR - sign out');
+  onFailure('Unable to sign you out.');
 };
 
 module.exports = {
