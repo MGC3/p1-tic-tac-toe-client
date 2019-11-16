@@ -33,6 +33,11 @@ const onClickSquare = e => {
     game.onUpdateMove(id, player);
     ui.renderSquare(id);
     ui.updateCurrentTurn();
+  } else if (store.isOver) {
+    ui.displayInfo(
+      'Unable to make that move',
+      'The game is already over! Create a new game to play again.'
+    );
   } else {
     ui.displayInfo(
       'Unable to make that move',

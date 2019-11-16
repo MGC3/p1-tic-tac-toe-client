@@ -4,6 +4,7 @@ const api = require('./api');
 const ui = require('./ui');
 const store = require('../store');
 
+// TODO see if I can remove this, since its duplicated in events/onCreateGame()
 store.currentPlayer = 'x';
 
 let totalMoves = 0;
@@ -26,6 +27,7 @@ const onUpdateMove = (id, player) => {
   totalMoves++;
   if (totalMoves === 9 && !isWinningMove()) {
     ui.displayInfo("It's a tie!", 'What a close match, try again!');
+    store.isOver = true;
   }
 };
 
