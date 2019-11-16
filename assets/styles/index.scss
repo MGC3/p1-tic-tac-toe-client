@@ -9,26 +9,43 @@ $black: #000;
   align-items: center;
 }
 
-.border {
-  border: 3px solid $black;
-  margin: 20px;
-  padding: 20px;
-}
+// TODO: delete this and any html together
+// .success {
+//   background-color: green;
+//   color: white;
+//   font-size: 2em;
+// }
 
-.success {
-  background-color: green;
-  color: white;
-  font-size: 2em;
-}
-
-.failure {
-  background-color: red;
-  color: white;
-  font-size: 2em;
-}
+// .failure {
+//   background-color: red;
+//   color: white;
+//   font-size: 2em;
+// }
 
 .after-auth {
   display: none;
+}
+
+.form-container {
+  width: 500px;
+  height: 500px;
+  padding-top: 50px;
+  border: solid;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-control {
+  margin: 5px 0;
 }
 
 .board {

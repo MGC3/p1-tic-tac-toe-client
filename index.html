@@ -26,25 +26,40 @@
       <h1>Tic Tac Toe</h1>
       <div id="message"></div>
       <section class="before-auth">
-        <h2>Sign Up</h2>
-        <form action="" id="sign-up">
-          <input type="email" name="credentials[email]" placeholder="email" />
-          <input type="password" name="credentials[password]"" placeholder="
-          password" />
-          <input
-            type="password"
-            name="credentials[password_confirmation]"
-            placeholder="password"
-          />
-          <button class="btn btn-primary">Submit</button>
-        </form>
-        <h2>Sign In</h2>
-        <form action="" id="sign-in">
-          <input type="email" name="credentials[email]" placeholder="email" />
-          <input type="password" name="credentials[password]"" placeholder="
-          password" />
-          <button class="btn btn-primary">Submit</button>
-        </form>
+        <div id="sign-up-form" class="form-container">
+          <h2>Sign Up</h2>
+          <form action="" id="sign-up" class="form-inputs">
+            <label for="">Email address</label>
+            <input
+              type="email"
+              name="credentials[email]"
+              placeholder="email"
+              class="form-control"
+            />
+            <label for="">Password</label>
+            <input type="password" name="credentials[password]"" placeholder="
+            password" class='form-control'/>
+            <label for="">Password confirmation</label>
+            <input
+              type="password"
+              name="credentials[password_confirmation]"
+              placeholder="password"
+              class="form-control"
+            />
+            <button class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <div id="sign-in-form" class="form-container">
+          <h2>Sign In</h2>
+          <form action="" id="sign-in" class="form-inputs">
+            <label for="">Email address</label>
+            <input type="email" name="credentials[email]" placeholder="email" />
+            <label for="">Password</label>
+            <input type="password" name="credentials[password]"" placeholder="
+            password" />
+            <button class="btn btn-primary">Submit</button>
+          </form>
+        </div>
       </section>
       <section class="after-auth">
         <h2>Change Password</h2>

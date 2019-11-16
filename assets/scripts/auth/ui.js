@@ -28,6 +28,7 @@ const onFailure = (title, text) => {
 
 const onSignupSuccess = () => {
   onSuccess('Sucessfully signed up');
+  // TOOD: hide the sign up form, show the sign in form
 };
 
 const onSignupFailure = () => {

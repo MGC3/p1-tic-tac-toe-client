@@ -30,6 +30,7 @@ const onGetAllGamesSuccess = data => {
 };
 
 const onGetAllGamesFailure = () => {
+  // TODO: convert these to Swal (just re-use auth ui's messaging?).
   onFailure('ERROR ERROR - failed to get all games');
 };
 
