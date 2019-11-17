@@ -21,7 +21,7 @@ const onCreateGameSuccess = responseData => {
   clearBoard();
   // if the board is still hidden (1st sign in), make the board visible
   $('.board').css('display', 'flex');
-  $('#current-turn').html('x');
+  $('#current-turn').html('X');
 };
 
 const onCreateGameFailure = () => {
@@ -79,7 +79,7 @@ const clearBoard = () => {
 
 const updateCurrentTurn = () => {
   const nextPlayer = store.currentPlayer === 'x' ? 'o' : 'x';
-  $('#current-turn').html(nextPlayer);
+  $('#current-turn').html(nextPlayer.toUpperCase());
 };
 
 module.exports = {

@@ -22,25 +22,23 @@ const onGetAllGames = () => {
 };
 
 const onClickSquare = e => {
-  // things to do:
-  // check if move is valid, and exit/break if invalid
-  // render the X or O. Add a 'currentPlayerSymbol' boolean somewhere and toggle it.
-  // check for win condition
-  // send/PATCH api update with new move. If win, send that info too. Also if win, show user message
+  // grab id of square that user clicked and the current player
   const id = parseInt(e.target.id);
   const player = store.currentPlayer;
+  // if the move is valid and the game is not over
   if (game.isValidMove(id) && !store.isOver) {
+    // send the id and player to the api - this updates the move and checks for win condition
     game.onUpdateMove(id, player);
+    // render the square on the board and toggle the current player
     ui.renderSquare(id);
     ui.updateCurrentTurn();
-
-    // case where the user tries to click when the game is over
+    // if the user tries to click when the game is over
   } else if (store.isOver) {
     ui.displayInfo(
       'Unable to make that move',
       'The game is already over! Create a new game to play again.'
     );
-    // case where the move is invalid and the game is still going
+    // if the move is invalid and the game is not over yet
   } else {
     ui.displayInfo(
       'Unable to make that move',
