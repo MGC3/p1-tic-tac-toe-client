@@ -2,7 +2,10 @@
 <html>
   <head>
     <title>Example</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
 
     <!-- Do not add `link` tags-->
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
@@ -23,8 +26,10 @@
   </head>
   <body>
     <div class="container">
-      <h1>Tic Tac Toe</h1>
       <section class="before-auth">
+        <nav>
+          <h1 class="nav-title">Tic Tac Toe</h1>
+        </nav>
         <div id="sign-up-form" class="form-container">
           <form action="" id="sign-up" class="form-contents">
             <h2 class="form-title">Create account</h2>
@@ -74,16 +79,32 @@
         </div>
       </section>
       <section class="after-auth">
-        <h2>Change Password</h2>
-        <form action="" id="change-password">
-          <input type="text" name="passwords[old]" placeholder="old password" />
-          <input type="text" name="passwords[new]" placeholder="new password" />
-          <button class="btn btn-primary">Submit</button>
-        </form>
-        <h2>Sign out</h2>
-        <form action="" id="sign-out">
-          <button class="btn btn-primary">Sign out</button>
-        </form>
+        <nav>
+          <h1 class="nav-title">Tic Tac Toe</h1>
+          <div class="nav-items">
+            <form action="" id="change-password">
+              <input
+                type="text"
+                name="passwords[old]"
+                placeholder="old password"
+              />
+              <input
+                type="text"
+                name="passwords[new]"
+                placeholder="new password"
+              />
+              <button class="btn btn-primary">
+                Submit
+              </button>
+            </form>
+            <button class="btn btn-link" id="change-password-link">
+              Change password
+            </button>
+            <form action="" id="sign-out" class="pull-right">
+              <button class="btn btn-outline-primary">Sign out</button>
+            </form>
+          </div>
+        </nav>
         <div id="game">
           <button id="create-game" class="btn btn-primary">
             Start new game
@@ -91,7 +112,6 @@
           <button id="get-all-games" class="btn btn-primary">
             Get all games
           </button>
-
           <div>Total games: <span id="game-count"></span></div>
           <div>Current turn: <span id="current-turn"></span></div>
           <div id="game-alert"></div>

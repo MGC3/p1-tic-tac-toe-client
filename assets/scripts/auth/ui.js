@@ -61,6 +61,7 @@ const onSigninFailure = () => {
 
 const onChangePasswordSuccess = responseData => {
   onSuccess('Sucessfully changed password');
+  $('#change-password').css('visibility', 'hidden');
 };
 
 const onChangePasswordFailure = () => {
@@ -78,6 +79,7 @@ const onSignOutSuccess = () => {
   $('#current-turn').html('');
   $('form').trigger('reset');
   $('.board').css('display', 'none');
+  $('#change-password').css('visibility', 'hidden');
   $('.after-auth').hide();
   $('.before-auth').show();
 };

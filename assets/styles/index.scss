@@ -1,8 +1,42 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
-$black: #000;
+$black: #333333;
+
+body {
+  font-family: 'Lato', sans-serif;
+  color: $black;
+}
 
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+  width: 100vw;
+  padding: 0 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  margin-bottom: 30px;
+  border: dashed;
+}
+
+.nav-title {
+  margin-right: auto;
+}
+
+.nav-items {
+  display: flex;
+  flex-direction: row;
+}
+
+section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,7 +93,7 @@ label {
   flex-direction: row;
   flex-wrap: wrap;
   width: 450px;
-  margin: 0 auto;
+  margin: 50px auto;
 }
 
 .box {
@@ -76,4 +110,5 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }

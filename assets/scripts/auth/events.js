@@ -63,6 +63,10 @@ const onSignUpLink = () => {
   $('form').trigger('reset');
 };
 
+const onChangePasswordLink = () => {
+  $('#change-password').css('visibility', 'visible');
+};
+
 const addHandlers = e => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
@@ -71,6 +75,8 @@ const addHandlers = e => {
   $('#sign-in-link').on('click', onSignInLink);
   $('#sign-up-link').on('click', onSignUpLink);
   $('#sign-in-form').hide();
+  $('#change-password-link').on('click', onChangePasswordLink);
+  $('#change-password').css('visibility', 'hidden');
 };
 
 module.exports = {
