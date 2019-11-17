@@ -27,25 +27,38 @@ $black: #000;
 }
 
 .form-container {
-  width: 500px;
-  height: 500px;
-  padding-top: 50px;
-  border: solid;
+  width: 400px;
+  height: 450px;
+  padding: 50px 0;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-.form-inputs {
+.form-contents {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 250px;
 }
 
 .form-control {
-  margin: 5px 0;
+  margin-bottom: 10px;
+}
+
+label {
+  margin: 0px;
+}
+
+.form-title {
+  margin-bottom: 10px;
+}
+
+.btn {
+  margin: 10px 0;
 }
 
 .board {

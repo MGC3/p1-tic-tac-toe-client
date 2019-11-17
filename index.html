@@ -27,8 +27,8 @@
       <div id="message"></div>
       <section class="before-auth">
         <div id="sign-up-form" class="form-container">
-          <h2>Sign Up</h2>
-          <form action="" id="sign-up" class="form-inputs">
+          <form action="" id="sign-up" class="form-contents">
+            <h2 class="form-title">Create account</h2>
             <label for="">Email address</label>
             <input
               type="email"
@@ -37,8 +37,8 @@
               class="form-control"
             />
             <label for="">Password</label>
-            <input type="password" name="credentials[password]"" placeholder="
-            password" class='form-control'/>
+            <input type="password" name="credentials[password]""
+            placeholder="password" class='form-control'/>
             <label for="">Password confirmation</label>
             <input
               type="password"
@@ -46,18 +46,31 @@
               placeholder="password"
               class="form-control"
             />
-            <button class="btn btn-primary">Submit</button>
+            <button class="btn btn-primary">Create account</button>
+            <p>
+              Already have an account?
+              <span id="sign-in-link" class="form-link">Log in</span>
+            </p>
           </form>
         </div>
         <div id="sign-in-form" class="form-container">
-          <h2>Sign In</h2>
-          <form action="" id="sign-in" class="form-inputs">
+          <form action="" id="sign-in" class="form-contents">
+            <h2 class="form-title">Log in</h2>
             <label for="">Email address</label>
-            <input type="email" name="credentials[email]" placeholder="email" />
+            <input
+              type="email"
+              name="credentials[email]"
+              placeholder="email"
+              class="form-control"
+            />
             <label for="">Password</label>
-            <input type="password" name="credentials[password]"" placeholder="
-            password" />
-            <button class="btn btn-primary">Submit</button>
+            <input type="password" name="credentials[password]""
+            placeholder="password" class="form-control"/>
+            <button class="btn btn-primary">Log in</button>
+            <p>
+              Need an account?
+              <span id="sign-in-link" class="form-link">Create account</span>
+            </p>
           </form>
         </div>
       </section>
