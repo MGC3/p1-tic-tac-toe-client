@@ -3,11 +3,15 @@
 const store = require('../store');
 const Swal = require('sweetalert2');
 
-const onFailure = message => {
-  $('#game')
-    .removeClass('success')
-    .addClass('failure)')
-    .text(message);
+const onFailure = (title, text) => {
+  Swal.fire({
+    position: 'top',
+    icon: 'error',
+    title: title,
+    text: text || null,
+    showConfirmButton: false,
+    timer: 2000
+  });
 };
 
 const onCreateGameSuccess = responseData => {
@@ -31,7 +35,7 @@ const onGetAllGamesSuccess = data => {
 
 const onGetAllGamesFailure = () => {
   // TODO: convert these to Swal (just re-use auth ui's messaging?).
-  onFailure('ERROR ERROR - failed to get all games');
+  onFailure('Unable to get all games');
 };
 
 const renderSquare = id => {

@@ -51,11 +51,26 @@ const onSignOut = e => {
     .catch(ui.onSignOutFailure);
 };
 
+const onSignInLink = () => {
+  $('#sign-up-form').hide();
+  $('#sign-in-form').show();
+  $('form').trigger('reset');
+};
+
+const onSignUpLink = () => {
+  $('#sign-in-form').hide();
+  $('#sign-up-form').show();
+  $('form').trigger('reset');
+};
+
 const addHandlers = e => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('submit', onSignOut);
+  $('#sign-in-link').on('click', onSignInLink);
+  $('#sign-up-link').on('click', onSignUpLink);
+  $('#sign-in-form').hide();
 };
 
 module.exports = {

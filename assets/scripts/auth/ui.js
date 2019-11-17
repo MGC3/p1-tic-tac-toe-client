@@ -9,7 +9,7 @@ const onSuccess = message => {
     icon: 'success',
     title: message,
     showConfirmButton: false,
-    timer: 1250
+    timer: 1500
   });
   $('form').trigger('reset');
 };
@@ -21,14 +21,15 @@ const onFailure = (title, text) => {
     title: title,
     text: text || null,
     showConfirmButton: false,
-    timer: 2000
+    timer: 2500
   });
   $('form').trigger('reset');
 };
 
 const onSignupSuccess = () => {
   onSuccess('Sucessfully signed up');
-  // TOOD: hide the sign up form, show the sign in form
+  $('#sign-up-form').hide();
+  $('#sign-in-form').show();
 };
 
 const onSignupFailure = () => {
