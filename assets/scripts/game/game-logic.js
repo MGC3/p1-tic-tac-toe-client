@@ -61,6 +61,12 @@ const isWinningMove = () => {
     ) {
       // and if so, set winner to true so this function returns that (which triggers endGame())
       winner = true;
+      // track the winner for stats bar
+      store.currentPlayer === 'x'
+        ? (store.winsX = store.winsX + 1 || 1)
+        : (store.winsO = store.wins0 + 1 || 1);
+      console.warn('Wins x', store.winsX);
+      console.warn('Wins o', store.winsO);
     }
   });
 
