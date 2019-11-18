@@ -49,9 +49,28 @@ const onClickSquare = e => {
   }
 };
 
+const onClickSpeed = () => {
+  onCreateGame();
+  let speedGame = setInterval(function() {
+    if (store.isOver) {
+      console.log("The game is over, so I won't execute speed turn");
+      clearInterval(speedGame);
+      return;
+      // else toggle the player TODO: and reset timer
+    } else {
+      // ui.updateCurrentTurn();
+
+      // game.togglePlayer();
+      // and display new countdown to user
+      console.log('Speed turn over!');
+    }
+  }, 2000);
+};
+
 const addHandlers = e => {
   $('#create-game').on('click', onCreateGame);
   $('#game-board').on('click', onClickSquare);
+  $('#speed-game').on('click', onClickSpeed);
 };
 
 module.exports = {
