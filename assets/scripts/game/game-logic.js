@@ -3,10 +3,8 @@
 const api = require('./api');
 const ui = require('./ui');
 const store = require('../store');
-
-// TODO see if I can remove this, since its duplicated in events/onCreateGame()
-store.currentPlayer = 'x';
-
+// track total moves for detecting tie condition in onUpdateMove()
+// TODO: should this be moved to store?
 let totalMoves = 0;
 
 const isValidMove = id => {
@@ -24,6 +22,7 @@ const onUpdateMove = (id, player) => {
     .then(isWon => (isWon ? endGame() : togglePlayer()))
     .catch(error => ui.onUpdateMoveFailure(error));
 
+  // if nobody has won after 9 moves, set the game as over and display message to user
   totalMoves++;
   if (totalMoves === 9 && !isWinningMove()) {
     ui.displayInfo("It's a tie!", 'What a close match, try again!');
@@ -44,19 +43,19 @@ const winningMoves = [
 
 const isWinningMove = () => {
   let winner = false;
+  // for every winning move combination...
   winningMoves.map(row => {
     let first = row[0];
     let second = row[1];
     let third = row[2];
-
+    // check to see if our cells array has all x's or o's in them...
     if (
       store.game.cells[first] === store.game.cells[second] &&
       store.game.cells[second] === store.game.cells[third] &&
       store.game.cells[first] !== ''
     ) {
+      // and if so, set winner to true so this function returns that (which triggers endGame())
       winner = true;
-      store.isOver = true;
-      totalMoves = 0;
     }
   });
 
@@ -68,7 +67,11 @@ const togglePlayer = () => {
 };
 
 const endGame = () => {
+  // notify the user that the game is over
   ui.onGameOver();
+  // set the isOver flag and reset the total moves counter
+  store.isOver = true;
+  totalMoves = 0;
 };
 
 module.exports = {
