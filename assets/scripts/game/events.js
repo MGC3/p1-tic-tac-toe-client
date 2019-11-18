@@ -51,7 +51,6 @@ const onClickSquare = e => {
 
 const addHandlers = e => {
   $('#create-game').on('click', onCreateGame);
-  $('#get-all-games').on('click', onGetAllGames);
   $('#game-board').on('click', onClickSquare);
 };
 

@@ -53,6 +53,11 @@ const onUpdateMoveFailure = () => {
 };
 
 const onGameOver = () => {
+  updateStats();
+  gameOverMessage();
+};
+
+const gameOverMessage = () => {
   Swal.fire({
     title: `Player ${store.currentPlayer} wins!`,
     text: 'Congratulations, you won!',
@@ -81,6 +86,13 @@ const updateCurrentTurn = () => {
   $('#current-turn').html(nextPlayer.toUpperCase());
 };
 
+const updateStats = () => {
+  $('#count-draw').html(store.tie);
+  $('#count-session-games').html(store.sessionGamesCount);
+  $('#count-x').html(store.winsX);
+  $('#count-o').html(store.winsO);
+};
+
 module.exports = {
   onCreateGameSuccess,
   onCreateGameFailure,
@@ -92,5 +104,6 @@ module.exports = {
   onGameOver,
   clearBoard,
   displayInfo,
-  updateCurrentTurn
+  updateCurrentTurn,
+  updateStats
 };

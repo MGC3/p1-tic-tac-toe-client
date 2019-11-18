@@ -31,7 +31,9 @@ const onUpdateMove = (id, player) => {
     totalMoves = 0;
     // update tie count for stats
     store.tie = store.tie + 1 || 1;
-    console.warn(store.tie);
+    // update session games count stat
+    store.sessionGamesCount = store.sessionGamesCount + 1 || 1;
+    ui.updateStats();
   }
 };
 
@@ -65,8 +67,8 @@ const isWinningMove = () => {
       store.currentPlayer === 'x'
         ? (store.winsX = store.winsX + 1 || 1)
         : (store.winsO = store.wins0 + 1 || 1);
-      console.warn('Wins x', store.winsX);
-      console.warn('Wins o', store.winsO);
+      // update session games count stat
+      store.sessionGamesCount = store.sessionGamesCount + 1 || 1;
     }
   });
 

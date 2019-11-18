@@ -75,7 +75,15 @@ const onSignOutSuccess = () => {
   onSuccess('Sucessfully signed out');
   // clear store and hide stuff
   store.user = {};
-  $('#count-all-games').html('');
+  store.winsX = 0;
+  store.winsO = 0;
+  store.tie = 0;
+  store.sessionGamesCount = 0;
+  $('#count-all-games').html('0');
+  $('#count-x').html('0');
+  $('#count-o').html('0');
+  $('#count-draw').html('0');
+  $('#count-session-games').html('0');
   $('#current-turn').html('');
   $('form').trigger('reset');
   $('.board').css('display', 'none');
