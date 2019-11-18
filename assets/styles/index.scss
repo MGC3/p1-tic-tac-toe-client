@@ -109,6 +109,12 @@ label {
   margin: 0 10px;
 }
 
+.stat-bottom-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .stat-title {
   font-size: 16px;
   margin: 0;
@@ -116,6 +122,8 @@ label {
 
 .stat-count {
   font-size: 24px;
+  margin-right: 5px;
+  margin-bottom: 0px;
 }
 
 .stat-subtext {
