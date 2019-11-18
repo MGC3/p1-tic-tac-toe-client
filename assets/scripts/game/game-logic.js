@@ -26,7 +26,12 @@ const onUpdateMove = (id, player) => {
   totalMoves++;
   if (totalMoves === 9 && !isWinningMove()) {
     ui.displayInfo("It's a tie!", 'What a close match, try again!');
+    // TODO: the next two lines are duplicated in endGame(), refactor possibility
     store.isOver = true;
+    totalMoves = 0;
+    // update tie count for stats
+    store.tie = store.tie + 1 || 1;
+    console.warn(store.tie);
   }
 };
 
