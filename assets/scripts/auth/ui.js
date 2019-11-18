@@ -79,7 +79,7 @@ const onSignOutSuccess = () => {
   store.winsO = 0;
   store.tie = 0;
   store.sessionGamesCount = 0;
-  $('#count-all-games').html('0');
+  $('#count-all-games').html('');
   $('#count-x').html('0');
   $('#count-o').html('0');
   $('#count-draw').html('0');
