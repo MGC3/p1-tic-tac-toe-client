@@ -109,35 +109,35 @@
           <div class="stat-item">
             <p class="stat-title">Total Games Played</p>
             <div class="stat-bottom-row">
-              <p class="stat-count">25</p>
+              <p class="stat-count" id="count-all-games">0</p>
               <span class="stat-subtext">games</span>
             </div>
           </div>
           <div class="stat-item">
             <p class="stat-title">Session Stats</p>
             <div class="stat-bottom-row">
-              <p class="stat-count">25</p>
-              <span class="stat-subtext">wins</span>
+              <p class="stat-count" id="count-session-games">0</p>
+              <span class="stat-subtext">games</span>
             </div>
           </div>
           <div class="stat-item">
             <p class="stat-title">X</p>
             <div class="stat-bottom-row">
-              <p class="stat-count">25</p>
+              <p class="stat-count" id="count-x">0</p>
               <span class="stat-subtext">wins</span>
             </div>
           </div>
           <div class="stat-item">
             <p class="stat-title">O</p>
             <div class="stat-bottom-row">
-              <p class="stat-count">25</p>
+              <p class="stat-count" id="count-o">0</p>
               <span class="stat-subtext">wins</span>
             </div>
           </div>
           <div class="stat-item">
             <p class="stat-title">Draws</p>
             <div class="stat-bottom-row">
-              <p class="stat-count">25</p>
+              <p class="stat-count" id="count-draw">0</p>
               <span class="stat-subtext">games</span>
             </div>
           </div>
@@ -149,7 +149,8 @@
           <button id="get-all-games" class="btn btn-primary">
             Get all games
           </button>
-          <div>Total games: <span id="game-count"></span></div>
+          <!-- TODO: erase references to game-count -->
+          <!-- <div>Total games: <span id="game-count"></span></div> -->
           <h2 class="current-turn-display">
             Current turn: <span id="current-turn"></span>
           </h2>

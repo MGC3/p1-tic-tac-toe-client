@@ -12,6 +12,8 @@ const onCreateGame = e => {
     .createGame()
     .then(res => ui.onCreateGameSuccess(res))
     .catch(ui.onCreateGameFailure);
+  // update stat bar with total games
+  onGetAllGames();
 };
 
 const onGetAllGames = () => {
@@ -55,5 +57,6 @@ const addHandlers = e => {
 
 module.exports = {
   addHandlers,
-  onCreateGame
+  onCreateGame,
+  onGetAllGames
 };
