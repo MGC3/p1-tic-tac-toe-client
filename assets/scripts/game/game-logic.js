@@ -4,7 +4,7 @@ const api = require("./api");
 const ui = require("./ui");
 const store = require("../store");
 // track total moves for detecting tie condition in onUpdateMove()
-let totalMoves = 0;
+store.totalMoves = 0;
 
 const isValidMove = id => {
   return store.game.cells[id] == false ? true : false;
@@ -22,12 +22,12 @@ const onUpdateMove = (id, player) => {
     .catch(error => ui.onUpdateMoveFailure(error));
 
   // if nobody has won after 9 moves, set the game as over and display message to user
-  totalMoves++;
-  if (totalMoves === 9 && !isWinningMove()) {
+  store.totalMoves++;
+  if (store.totalMoves === 9 && !isWinningMove()) {
     ui.displayInfo("It's a tie!", "What a close match, try again!");
     // TODO: the next two lines are duplicated in endGame(), refactor possibility
     store.isOver = true;
-    totalMoves = 0;
+    store.totalMoves = 0;
     // update tie count for stats
     store.tie = store.tie + 1 || 1;
     // update session games count stat
@@ -83,7 +83,7 @@ const endGame = () => {
   ui.onGameOver();
   // set the isOver flag and reset the total moves counter
   store.isOver = true;
-  totalMoves = 0;
+  store.totalMoves = 0;
 };
 
 module.exports = {
