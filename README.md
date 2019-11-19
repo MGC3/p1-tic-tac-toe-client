@@ -1,5 +1,7 @@
 # P1 Tic Tac Toe
 
+<img src="https://raw.githubusercontent.com/MGC3/p1-tic-tac-toe-client/tree/master/documentation/screenshot-p1-mvp2-02-board-play.png" width=300>
+
 A Tic Tac Toe single page app.
 
 ### Technologies used
