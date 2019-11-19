@@ -68,6 +68,11 @@ const isWinningMove = () => {
         : (store.winsO = store.wins0 + 1 || 1);
       // update session games count stat
       store.sessionGamesCount = store.sessionGamesCount + 1 || 1;
+      // workaround for draw bug - if you win and its a tie, don't count the tie
+      if (store.totalMoves === 0 && store.isOver) {
+        store.tie = store.tie - 1 || 0;
+        store.sessionGamesCount = store.sessionGamesCount - 1 || 0;
+      }
     }
   });
 
