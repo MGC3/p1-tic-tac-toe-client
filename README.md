@@ -27,12 +27,22 @@ I would have really liked to add a twist to make this standout from your average
 ### Wireframes and User Stories
 
 Initial wireframes for MVP:
+<img src="https://raw.githubusercontent.com/MGC3/p1-tic-tac-toe-client/master/documentation/wireframe-p1-mvp-01-signin.png" width=300>
+
+<img src="https://raw.githubusercontent.com/MGC3/p1-tic-tac-toe-client/master/documentation/wireframe-p1-mvp-02-board.png" width=300>
 
 Progress towards MVP:
+<img src="https://raw.githubusercontent.com/MGC3/p1-tic-tac-toe-client/master/documentation/screenshot-p1-mvp-02-board.png" width=300>
+
+<img src="https://raw.githubusercontent.com/MGC3/p1-tic-tac-toe-client/master/documentation/screenshot-p1-mvp-03-board-progress.png" width=300>
 
 Quick wireframe of MVP+ (better stats bar):
+<img src="https://raw.githubusercontent.com/MGC3/p1-tic-tac-toe-client/master/documentation/wireframe-p1-mvp1-01-stats-bar.png" width=300>
 
-Final screenshot:
+Final screenshots:
+<img src="https://raw.githubusercontent.com/MGC3/p1-tic-tac-toe-client/master/documentation/screenshot-p1-mvp2-01-create-acct.png" width=300>
+<img src="https://raw.githubusercontent.com/MGC3/p1-tic-tac-toe-client/master/documentation/screenshot-p1-mvp2-02-board-play.png" width=300>
+<img src="https://raw.githubusercontent.com/MGC3/p1-tic-tac-toe-client/master/documentation/screenshot-p1-mvp2-03-board-win.png" width=300>
 
 Some examples of user stories:
 
