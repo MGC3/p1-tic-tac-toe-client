@@ -1,13 +1,13 @@
-'use strict';
+"use strict";
 
-const api = require('./api');
-const ui = require('./ui');
-const game = require('./game-logic');
-const store = require('../store');
+const api = require("./api");
+const ui = require("./ui");
+const game = require("./game-logic");
+const store = require("../store");
 
 const onCreateGame = e => {
   store.isOver = false;
-  store.currentPlayer = 'x';
+  store.currentPlayer = "x";
   api
     .createGame()
     .then(res => ui.onCreateGameSuccess(res))
@@ -37,21 +37,21 @@ const onClickSquare = e => {
     // if the user tries to click when the game is over
   } else if (store.isOver) {
     ui.displayInfo(
-      'Unable to make that move',
-      'The game is already over! Create a new game to play again.'
+      "Unable to make that move",
+      "The game is already over! Create a new game to play again."
     );
     // if the move is invalid and the game is not over yet
   } else {
     ui.displayInfo(
-      'Unable to make that move',
-      'That spot is already taken! Try clicking another spot.'
+      "Unable to make that move",
+      "That spot is already taken! Try clicking another spot."
     );
   }
 };
 
 const addHandlers = e => {
-  $('#create-game').on('click', onCreateGame);
-  $('#game-board').on('click', onClickSquare);
+  $("#create-game").on("click", onCreateGame);
+  $("#game-board").on("click", onClickSquare);
 };
 
 module.exports = {
