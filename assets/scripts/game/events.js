@@ -6,8 +6,10 @@ const game = require("./game-logic");
 const store = require("../store");
 
 const onCreateGame = e => {
+  // reset some state for a new game
   store.isOver = false;
   store.currentPlayer = "x";
+  // create the new game
   api
     .createGame()
     .then(res => ui.onCreateGameSuccess(res))
@@ -56,6 +58,5 @@ const addHandlers = e => {
 
 module.exports = {
   addHandlers,
-  onCreateGame,
-  onGetAllGames
+  onCreateGame
 };

@@ -1,10 +1,9 @@
-'use strict';
+"use strict";
 
-const api = require('./api');
-const ui = require('./ui');
-const store = require('../store');
+const api = require("./api");
+const ui = require("./ui");
+const store = require("../store");
 // track total moves for detecting tie condition in onUpdateMove()
-// TODO: should this be moved to store?
 let totalMoves = 0;
 
 const isValidMove = id => {
@@ -25,7 +24,7 @@ const onUpdateMove = (id, player) => {
   // if nobody has won after 9 moves, set the game as over and display message to user
   totalMoves++;
   if (totalMoves === 9 && !isWinningMove()) {
-    ui.displayInfo("It's a tie!", 'What a close match, try again!');
+    ui.displayInfo("It's a tie!", "What a close match, try again!");
     // TODO: the next two lines are duplicated in endGame(), refactor possibility
     store.isOver = true;
     totalMoves = 0;
@@ -59,12 +58,12 @@ const isWinningMove = () => {
     if (
       store.game.cells[first] === store.game.cells[second] &&
       store.game.cells[second] === store.game.cells[third] &&
-      store.game.cells[first] !== ''
+      store.game.cells[first] !== ""
     ) {
       // and if so, set winner to true so this function returns that (which triggers endGame())
       winner = true;
       // track the winner for stats bar
-      store.currentPlayer === 'x'
+      store.currentPlayer === "x"
         ? (store.winsX = store.winsX + 1 || 1)
         : (store.winsO = store.wins0 + 1 || 1);
       // update session games count stat
@@ -76,7 +75,7 @@ const isWinningMove = () => {
 };
 
 const togglePlayer = () => {
-  store.currentPlayer = store.currentPlayer === 'x' ? 'o' : 'x';
+  store.currentPlayer = store.currentPlayer === "x" ? "o" : "x";
 };
 
 const endGame = () => {
@@ -89,8 +88,6 @@ const endGame = () => {
 
 module.exports = {
   isValidMove,
-  isWinningMove,
   togglePlayer,
-  onUpdateMove,
-  endGame
+  onUpdateMove
 };
