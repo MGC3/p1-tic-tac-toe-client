@@ -27,7 +27,7 @@ const onFailure = (title, text) => {
 };
 
 const onSignupSuccess = () => {
-  onSuccess("Sucessfully signed up");
+  onSuccess("Successfully signed up");
   $("#sign-up-form").hide();
   $("#sign-in-form").show();
 };
@@ -35,7 +35,7 @@ const onSignupSuccess = () => {
 const onSignupFailure = () => {
   onFailure(
     "Unable to sign up",
-    "We weren't able to sign you up. Try using a different email."
+    "We weren't able to sign you up. Try using a different email, or if you already have an account, sign in instead."
   );
 };
 
@@ -63,7 +63,7 @@ const onSigninFailure = () => {
 };
 
 const onChangePasswordSuccess = responseData => {
-  onSuccess("Sucessfully changed password");
+  onSuccess("Successfully changed password");
   $("#change-password").css("visibility", "hidden");
 };
 
@@ -75,7 +75,7 @@ const onChangePasswordFailure = () => {
 };
 
 const onSignOutSuccess = () => {
-  onSuccess("Sucessfully signed out");
+  onSuccess("Successfully signed out");
   // clean things up: clear store, hide the app again, reset session stats
   store.user = {};
   store.winsX = 0;
@@ -96,7 +96,7 @@ const onSignOutSuccess = () => {
 };
 
 const onSignOutFailure = () => {
-  onFailure("Unable to sign you out.");
+  onFailure("Unable to sign you out");
 };
 
 module.exports = {
