@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-const api = require('./api');
-const getFormFields = require('../../../lib/get-form-fields');
-const ui = require('./ui');
-const gameUi = require('../game/ui');
+const api = require("./api");
+const getFormFields = require("../../../lib/get-form-fields");
+const ui = require("./ui");
+const gameUi = require("../game/ui");
 
 const onSignUp = e => {
   e.preventDefault();
@@ -22,9 +22,23 @@ const onSignIn = e => {
 
   const form = e.target;
   const formData = getFormFields(form);
-
+  console.log(formData);
   api
     .signIn(formData)
+    .then(ui.onSigninSuccess)
+    .catch(ui.onSigninFailure);
+};
+
+const onDemoSignInLink = e => {
+  e.preventDefault();
+
+  api
+    .signIn({
+      credentials: {
+        email: "demo@prod",
+        password: "demo"
+      }
+    })
     .then(ui.onSigninSuccess)
     .catch(ui.onSigninFailure);
 };
@@ -52,31 +66,32 @@ const onSignOut = e => {
 };
 
 const onSignInLink = () => {
-  $('#sign-up-form').hide();
-  $('#sign-in-form').show();
-  $('form').trigger('reset');
+  $("#sign-up-form").hide();
+  $("#sign-in-form").show();
+  $("form").trigger("reset");
 };
 
 const onSignUpLink = () => {
-  $('#sign-in-form').hide();
-  $('#sign-up-form').show();
-  $('form').trigger('reset');
+  $("#sign-in-form").hide();
+  $("#sign-up-form").show();
+  $("form").trigger("reset");
 };
 
 const onChangePasswordLink = () => {
-  $('#change-password').css('visibility', 'visible');
+  $("#change-password").css("visibility", "visible");
 };
 
 const addHandlers = e => {
-  $('#sign-up').on('submit', onSignUp);
-  $('#sign-in').on('submit', onSignIn);
-  $('#change-password').on('submit', onChangePassword);
-  $('#sign-out').on('submit', onSignOut);
-  $('#sign-in-link').on('click', onSignInLink);
-  $('#sign-up-link').on('click', onSignUpLink);
-  $('#sign-in-form').hide();
-  $('#change-password-link').on('click', onChangePasswordLink);
-  $('#change-password').css('visibility', 'hidden');
+  $("#sign-up").on("submit", onSignUp);
+  $("#sign-in").on("submit", onSignIn);
+  $("#change-password").on("submit", onChangePassword);
+  $("#sign-out").on("submit", onSignOut);
+  $("#sign-in-link").on("click", onSignInLink);
+  $("#demo-sign-in-link").on("click", onDemoSignInLink);
+  $("#sign-up-link").on("click", onSignUpLink);
+  $("#sign-in-form").hide();
+  $("#change-password-link").on("click", onChangePasswordLink);
+  $("#change-password").css("visibility", "hidden");
 };
 
 module.exports = {
