@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tic Tac Toe</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+
+    <!-- Do not add `link` tags-->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon-32x32.png" />
+
+    <!-- Do not add `script` tags-->
+    <script
+      src="public/vendor.js"
+      type="text/javascript"
+      charset="utf-8"
+      defer
+    ></script>
+    <script
+      src="public/application.js"
+      type="text/javascript"
+      charset="utf-8"
+      defer
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <section class="before-auth">
+        <nav>
+          <h1 class="nav-title">Tic Tac Toe</h1>
+        </nav>
+        <div id="sign-up-form" class="form-container">
+          <form action="" id="sign-up" class="form-contents">
+            <h2 class="form-title">Create account</h2>
+            <p>
+              Or
+              <span id="demo-sign-in-link" class="form-link"
+                >log in with demo account</span
+              >
+            </p>
+            <label for="">Email address</label>
+            <input
+              type="email"
+              name="credentials[email]"
+              placeholder="email"
+              class="form-control"
+            />
+            <label for="">Password</label>
+            <input type="password" name="credentials[password]""
+            placeholder="password" class='form-control'/>
+            <label for="">Password confirmation</label>
+            <input
+              type="password"
+              name="credentials[password_confirmation]"
+              placeholder="password"
+              class="form-control"
+            />
+            <button class="btn btn-primary">Create account</button>
+            <p>
+              Already have an account?
+              <span id="sign-in-link" class="form-link">Log in</span>
+            </p>
+          </form>
+        </div>
+        <div id="sign-in-form" class="form-container">
+          <form action="" id="sign-in" class="form-contents">
+            <h2 class="form-title">Log in</h2>
+            <label for="">Email address</label>
+            <input
+              type="email"
+              name="credentials[email]"
+              placeholder="email"
+              class="form-control"
+            />
+            <label for="">Password</label>
+            <input type="password" name="credentials[password]""
+            placeholder="password" class="form-control"/>
+            <button class="btn btn-primary">Log in</button>
+            <p>
+              Need an account?
+              <span id="sign-up-link" class="form-link">Create account</span>
+            </p>
+          </form>
+        </div>
+      </section>
+      <section class="after-auth">
+        <nav>
+          <h1 class="nav-title">Tic Tac Toe</h1>
+          <div class="nav-items">
+            <form action="" id="change-password" class="change-password-form">
+              <input
+                type="text"
+                name="passwords[old]"
+                placeholder="old password"
+              />
+              <input
+                type="text"
+                name="passwords[new]"
+                placeholder="new password"
+              />
+              <button class="btn btn-primary">
+                Submit
+              </button>
+            </form>
+            <button class="btn btn-link" id="change-password-link">
+              Change password
+            </button>
+            <form action="" id="sign-out" class="pull-right">
+              <button class="btn btn-outline-primary">Sign out</button>
+            </form>
+          </div>
+        </nav>
+        <div class="stats-bar">
+          <div class="stat-item">
+            <p class="stat-title">Total Games Played</p>
+            <div class="stat-bottom-row">
+              <p class="stat-count" id="count-all-games"></p>
+              <span class="stat-subtext">games</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <p class="stat-title">Session Stats</p>
+            <div class="stat-bottom-row">
+              <p class="stat-count" id="count-session-games">0</p>
+              <span class="stat-subtext">games</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <p class="stat-title">X</p>
+            <div class="stat-bottom-row">
+              <p class="stat-count" id="count-x">0</p>
+              <span class="stat-subtext">wins</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <p class="stat-title">O</p>
+            <div class="stat-bottom-row">
+              <p class="stat-count" id="count-o">0</p>
+              <span class="stat-subtext">wins</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <p class="stat-title">Draws</p>
+            <div class="stat-bottom-row">
+              <p class="stat-count" id="count-draw">0</p>
+              <span class="stat-subtext">games</span>
+            </div>
+          </div>
+        </div>
+        <div id="game" class="game-container">
+          <button id="create-game" class="btn btn-primary">
+            Start new game
+          </button>
+          <h2 class="current-turn-display">
+            Current turn: <span id="current-turn"></span>
+          </h2>
+          <div id="game-board" class="board">
+            <div id="0" class="box"></div>
+            <div id="1" class="box"></div>
+            <div id="2" class="box"></div>
+            <div id="3" class="box"></div>
+            <div id="4" class="box"></div>
+            <div id="5" class="box"></div>
+            <div id="6" class="box"></div>
+            <div id="7" class="box"></div>
+            <div id="8" class="box"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
